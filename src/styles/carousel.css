@@ -1,0 +1,31 @@
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  --slide-spacing: clamp(calc(0px * 0.7), calc(0 / 1920 * 100vw), 0px);
+  --slide-size: clamp(calc(0px * 0.7), calc(0 / 1920 * 100vw), 0px);
+}
+
+.carousel-slide {
+  overflow: hidden;
+  width: calc(
+    (var(--slide-size) * var(--visible-slides)) +
+      (var(--slide-spacing) * (var(--visible-slides) * 2))
+  );
+}
+
+.carousel-width {
+  max-width: min(
+    calc(
+      (var(--slide-size) * var(--visible-slides)) +
+        (var(--slide-spacing) * (var(--visible-slides) * 2))
+    ),
+    1500px
+  );
+}
+
+.carousel-item {
+  display: grid;
+  place-content: center;
+  flex: 0 0 var(--slide-size);
+  margin: 0 var(--slide-spacing);
+}
