@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { archivo, berkshire_swash } from "@/lib/fonts";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
+import StoreProvider from "@/providers/store-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,14 +21,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <StoreProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </StoreProvider>
       </body>
     </html>
   );
