@@ -1,0 +1,9 @@
+<svg width="400" height="126" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+  overflow="auto" shape-rendering="auto" fill="#3e2a47" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="wavepath" d="M 0 2000 0 500 Q 123.5 317 247 500 t 247 0 247 0 247 0 247 0 247 0 247 0  v1000 z" />
+  </defs>
+  <g>
+    <use xlink:href="#wavepath" y="-400" fill="#3e2a47" />
+  </g>
+</svg>
