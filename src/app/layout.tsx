@@ -19,8 +19,7 @@ export default function RootLayout({
       className={`${archivo.variable} ${berkshire_swash.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-        {" "}
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
