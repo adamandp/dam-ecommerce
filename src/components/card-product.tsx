@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { ShoppingCart } from "lucide-react";
+import { animateFlyToCart } from "@/utils/motion-effects";
+import { useAppDispatch } from "@/lib/hooks";
 
 export enum DiscountTypeEnum {
   PERCENTAGE = "PERCENTAGE",

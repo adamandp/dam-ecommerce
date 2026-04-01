@@ -19,7 +19,7 @@ export default async function Home() {
   });
 
   await queryClient.prefetchQuery({
-    queryKey: ["categories"],
+    queryKey: ["categories-recomendations"],
     queryFn: () => getCategoriesRecomendation(),
   });
 

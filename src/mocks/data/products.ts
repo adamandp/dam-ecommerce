@@ -405,9 +405,9 @@ const products: ProductRes[] = [
       "Dairy-free frozen dessert made from natural plant-based ingredients. Refreshingly light and ethically sourced, a berry lover's vegan dream.",
     rate: 5,
     origPrice: 55000,
-    discountType: null,
-    discountValue: null,
-    discountPrice: null,
+    discountType: DiscountTypeEnum.FIXED,
+    discountValue: 5000,
+    discountPrice: 50000,
   },
 ];
 

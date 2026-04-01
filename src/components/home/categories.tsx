@@ -30,7 +30,7 @@ export default function Categories() {
   const { data: categories, isLoading } = useQuery<
     CategoriesRecomendationRes[]
   >({
-    queryKey: ["categories"],
+    queryKey: ["categories-recomendations"],
     queryFn: getCategoriesRecomendation,
   });
 
