@@ -5,8 +5,8 @@ import Carousel from "../carousel/carousel";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import { getCategoriesRecomendation } from "@/services/get-categories-recomendations";
 import { CategoriesRecomendationRes } from "@/types/categories-recomendations-interface";
+import { getRecomendations } from "@/services/recomendations-api";
 
 function CategoryCardSkeleton() {
   return (
@@ -31,7 +31,7 @@ export default function Categories() {
     CategoriesRecomendationRes[]
   >({
     queryKey: ["categories-recomendations"],
-    queryFn: getCategoriesRecomendation,
+    queryFn: getRecomendations.categories,
   });
 
   return (

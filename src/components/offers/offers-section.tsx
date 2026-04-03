@@ -1,15 +1,15 @@
 "use client";
 
-import { getOffersRecomendations } from "@/services/get-offers-recomendations";
 import { useQuery } from "@tanstack/react-query";
 import Carousel from "../carousel/carousel";
 import CardProduct from "../card-product";
 import CardProductSkeleton from "../card-product-skeleton";
+import { getRecomendations } from "@/services/recomendations-api";
 
 export default function OffersSection() {
   const { data: specialOffer, isLoading } = useQuery({
     queryKey: ["offers-recomendations"],
-    queryFn: getOffersRecomendations,
+    queryFn: getRecomendations.offers,
   });
 
   return (

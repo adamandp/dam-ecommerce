@@ -1,6 +1,6 @@
 import CommitmentSection from "@/components/offers/commitment-section";
 import OffersSection from "@/components/offers/offers-section";
-import { getOffersRecomendations } from "@/services/get-offers-recomendations";
+import { getRecomendations } from "@/services/recomendations-api";
 import { getQueryClient } from "@/utils/get-query-client";
 
 export default async function Page() {
@@ -8,7 +8,7 @@ export default async function Page() {
 
   await queryClient.prefetchQuery({
     queryKey: ["offers-recomendations"],
-    queryFn: getOffersRecomendations,
+    queryFn: getRecomendations.offers,
   });
 
   return (
