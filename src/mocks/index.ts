@@ -4,8 +4,6 @@ export async function initMocks() {
     server.listen({ onUnhandledRequest: "bypass" });
   } else {
     const { worker } = await import("./browser");
-    // The `quiet: true` option helps reduce console noise
-    // that sometimes interferes with Next.js HMR
     await worker.start({
       onUnhandledRequest: "bypass",
       serviceWorker: {

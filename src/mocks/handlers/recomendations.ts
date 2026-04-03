@@ -1,12 +1,12 @@
 import { http, HttpResponse, delay } from "msw"; // 1. Import delay
-import { dummyRecomendationsClassic } from "./data/classic";
 import { WebResponse } from "@/types/common-interface";
 import { ProductRes } from "@/types/product-res";
-import { dummyCategoriesRecomendations } from "./data/categories";
 import { CategoriesRecomendationRes } from "@/types/categories-recomendations-interface";
-import { dummyOffersRecomendations } from "./data/offers";
+import { dummyRecomendationsClassic } from "../data/classic";
+import { dummyCategoriesRecomendations } from "../data/categories";
+import { dummyOffersRecomendations } from "../data/offers";
 
-export const handlers = [
+export const recomendationsHandlers = [
   http.get("/recomendations/classic", async () => {
     await delay(500);
 
