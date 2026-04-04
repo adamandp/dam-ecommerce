@@ -1,8 +1,18 @@
+import { PaginationDto } from "./common-interface";
+
 export enum DiscountTypeEnum {
   PERCENTAGE = "PERCENTAGE",
   FIXED = "FIXED",
   PRICE = "PRICE",
   FREE_ITEM = "FREE_ITEM",
+}
+
+interface CatalogDto extends PaginationDto {
+  q?: string;
+  sort?: "asc" | "desc" | "default";
+  min?: number;
+  max?: number;
+  cat?: string[];
 }
 
 interface ProductRes {
@@ -17,4 +27,4 @@ interface ProductRes {
   discountValue?: number | null;
 }
 
-export type { ProductRes };
+export type { ProductRes, CatalogDto };

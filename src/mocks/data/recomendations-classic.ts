@@ -1,4 +1,4 @@
-import { ProductRes, DiscountTypeEnum } from "@/types/product-res";
+import { ProductRes, DiscountTypeEnum } from "@/types/product-interface";
 
 export const dummyRecomendationsClassic: ProductRes[] = [
   {

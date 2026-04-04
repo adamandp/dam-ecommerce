@@ -20,7 +20,7 @@ const frameworks = [
   { label: "Vue", value: "vue" },
   { label: "Angular", value: "angular" },
 ];
-import SearchInput from "./search-input";
+import SearchInput from "../search-input";
 
 interface SearchBarProps {
   setActiveSearchBar?: Dispatch<SetStateAction<boolean>>;

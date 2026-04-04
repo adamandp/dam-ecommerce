@@ -1,10 +1,10 @@
 import { http, HttpResponse, delay } from "msw"; // 1. Import delay
 import { WebResponse } from "@/types/common-interface";
-import { ProductRes } from "@/types/product-res";
+import { ProductRes } from "@/types/product-interface";
 import { CategoriesRecomendationRes } from "@/types/recomendations-interface";
-import { dummyRecomendationsClassic } from "../data/classic";
-import { dummyCategoriesRecomendations } from "../data/categories";
-import { dummyOffersRecomendations } from "../data/offers";
+import { dummyRecomendationsClassic } from "../data/recomendations-classic";
+import { dummyCategoriesRecomendations } from "../data/recomendations-categories";
+import { dummyOffersRecomendations } from "../data/recomendations-offers";
 
 export const recomendationsHandlers = [
   http.get("/recomendations/classic", async () => {

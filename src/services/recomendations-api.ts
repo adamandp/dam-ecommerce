@@ -1,6 +1,6 @@
 import { CategoriesRecomendationRes as CategoriesRes } from "@/types/recomendations-interface";
 import { WebResponse as WebRes } from "@/types/common-interface";
-import { ProductRes } from "@/types/product-res";
+import { ProductRes } from "@/types/product-interface";
 import axiosInstance from "@/utils/axios-instance";
 
 export const getRecomendations = {

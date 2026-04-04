@@ -4,7 +4,7 @@ import Carousel from "../carousel/carousel";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import CardProduct from "../product-card";
-import { ProductRes } from "@/types/product-res";
+import { ProductRes } from "@/types/product-interface";
 import CardProductSkeleton from "../product-card-skeleton";
 import { getRecomendations } from "@/services/recomendations-api";
 
