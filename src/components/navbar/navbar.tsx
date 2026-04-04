@@ -105,7 +105,7 @@ export default function Navbar() {
                   />
                 </motion.div>
               )}
-              <Link href={"/cart"} id="cart-button-desktop">
+              <Link href={"/carts"} id="cart-button-desktop">
                 <CartButton />
               </Link>
             </AnimatePresence>
