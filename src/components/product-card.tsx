@@ -6,6 +6,7 @@ import { animateFlyToCart } from "@/utils/motion-effects";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AddToCartDto, CartItemRes } from "@/types/carts-interface";
 import { cartApi } from "@/services/cart-api";
+import { rupiahFormatter } from "@/utils/rupiah-formatter";
 
 export enum DiscountTypeEnum {
   PERCENTAGE = "PERCENTAGE",
@@ -118,7 +119,26 @@ export default function CardProduct({
       className={`bg-card p-c-3 rounded-c-5 grid content-between h-full w-c-70 select-none relative overflow-hidden cursor-pointer product-card ${className}`}
       href={`/product/${id}`}
     >
-      <div className="grid place-items-center bg-[#F7F2F7] dark:bg-[#2A202A]  rounded-c-5 p-c-5">
+      {/* Refactored Discount & Promo Labels (Anchored to the Left) */}
+      <div className="absolute top-c-4 left-0 z-10 flex flex-col gap-c-2 max-w-[85%] pointer-events-none">
+        {discountPrice && discountType !== DiscountTypeEnum.FREE_ITEM && (
+          <div className="bg-red-500 text-white text-c-3 font-bold px-c-3 py-1 rounded-r-full shadow-md">
+            <span className="truncate block" suppressHydrationWarning>
+              {discountType === DiscountTypeEnum.PERCENTAGE
+                ? `${discountValue}% OFF`
+                : `${rupiahFormatter.format(discountValue || 0)} OFF`}
+            </span>
+          </div>
+        )}
+
+        {discountType === DiscountTypeEnum.FREE_ITEM && (
+          <div className="bg-yellow-500 text-white text-c-3 font-bold px-c-3 py-1 rounded-r-full shadow-md">
+            <span className="truncate block">FREE ITEM</span>
+          </div>
+        )}
+      </div>
+
+      <div className="grid place-items-center bg-[#F7F2F7] dark:bg-[#2A202A] rounded-c-5 p-c-5">
         <Image
           src={imageUrl || ""}
           alt="Product"
@@ -146,20 +166,11 @@ export default function CardProduct({
         <div className="flex gap-c-2 items-center">
           {discountPrice && (
             <p className="text-c-4-5 text-muted-foreground line-through">
-              {origPrice.toLocaleString("id-ID", {
-                style: "currency",
-                currency: "IDR",
-              })}
+              {rupiahFormatter.format(origPrice)}
             </p>
           )}
           <p className="text-c-5-5 font-bold text-pink-500">
-            {(discountPrice ? discountPrice : origPrice).toLocaleString(
-              "id-ID",
-              {
-                style: "currency",
-                currency: "IDR",
-              },
-            )}
+            {rupiahFormatter.format(discountPrice ? discountPrice : origPrice)}
           </p>
         </div>
         <Button
@@ -171,22 +182,6 @@ export default function CardProduct({
           <ShoppingCart className="size-c-6" />
         </Button>
       </div>
-      {discountPrice && (
-        <div className="absolute top-c-5 -right-c-10 bg-red-500 text-white text-c-4 font-bold px-c-10 py-1 rotate-45 shadow-md z-10">
-          <span suppressHydrationWarning>
-            {discountType === DiscountTypeEnum.PERCENTAGE
-              ? discountValue
-              : `${discountValue?.toLocaleString("id-ID")} `}
-          </span>
-          {discountType === DiscountTypeEnum.PERCENTAGE && <span>% </span>}
-          <span>OFF</span>
-        </div>
-      )}
-      {discountType === DiscountTypeEnum.FREE_ITEM && (
-        <div className="absolute top-c-5 -right-c-10 bg-yellow-500 text-white text-c-4 font-bold px-c-10 py-1 rotate-45 shadow-md z-10">
-          <span>FREE ITEM</span>
-        </div>
-      )}
     </Link>
   );
 }
