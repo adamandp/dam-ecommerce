@@ -33,7 +33,7 @@ type CartCardProps = {
   imageUrl: string;
   category: string;
   origPrice: number;
-  discPrice?: number | null;
+  discountPrice?: number | null;
   qty: number;
   className?: string;
 };
@@ -44,7 +44,7 @@ export default function CartCard({
   imageUrl,
   category,
   origPrice,
-  discPrice,
+  discountPrice,
   qty,
   className,
 }: CartCardProps) {
@@ -63,11 +63,11 @@ export default function CartCard({
     mutationFn: (req: AddToCartDto[]) => cartApi.addToCart(req),
 
     onMutate: async (req) => {
-      await queryClient.cancelQueries({ queryKey: ["cart"] });
+      await queryClient.cancelQueries({ queryKey: ["carts"] });
 
-      const previousCart = queryClient.getQueryData<CartItemRes[]>(["cart"]);
+      const previousCart = queryClient.getQueryData<CartItemRes[]>(["carts"]);
 
-      queryClient.setQueryData<CartItemRes[]>(["cart"], (old = []) => {
+      queryClient.setQueryData<CartItemRes[]>(["carts"], (old = []) => {
         const updated = [...old];
 
         req.forEach((r) => {
@@ -88,11 +88,11 @@ export default function CartCard({
     },
 
     onError: (_err, _req, context) => {
-      queryClient.setQueryData(["cart"], context?.previousCart);
+      queryClient.setQueryData(["carts"], context?.previousCart);
     },
 
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ["cart"] });
+      queryClient.invalidateQueries({ queryKey: ["carts"] });
     },
   });
 
@@ -100,11 +100,11 @@ export default function CartCard({
     mutationFn: (req: RemoveFromCartDto[]) => cartApi.removeFromCart(req),
 
     onMutate: async (req) => {
-      await queryClient.cancelQueries({ queryKey: ["cart"] });
+      await queryClient.cancelQueries({ queryKey: ["carts"] });
 
-      const previousCart = queryClient.getQueryData<CartItemRes[]>(["cart"]);
+      const previousCart = queryClient.getQueryData<CartItemRes[]>(["carts"]);
 
-      queryClient.setQueryData<CartItemRes[]>(["cart"], (old = []) => {
+      queryClient.setQueryData<CartItemRes[]>(["carts"], (old = []) => {
         const updated = [...old];
 
         req.forEach((r) => {
@@ -131,11 +131,11 @@ export default function CartCard({
     },
 
     onError: (_err, _req, context) => {
-      queryClient.setQueryData(["cart"], context?.previousCart);
+      queryClient.setQueryData(["carts"], context?.previousCart);
     },
 
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ["cart"] });
+      queryClient.invalidateQueries({ queryKey: ["carts"] });
     },
   });
 
@@ -162,7 +162,7 @@ export default function CartCard({
                   name,
                   imageUrl,
                   origPrice,
-                  discPrice,
+                  discountPrice,
                   qty,
                 }),
               );
@@ -188,13 +188,13 @@ export default function CartCard({
           </div>
           <div className="grid sm:flex gap-c-3 w-full">
             <div className="flex gap-c-2 items-center sm:w-c-30 sm:order-2 justify-start sm:justify-end sm:ml-auto">
-              {discPrice && (
+              {discountPrice && (
                 <p className="text-c-4 text-muted-foreground line-through ">
                   {rupiahFormatter.format(origPrice * qty)}
                 </p>
               )}
               <h3 className="text-c-5 font-bold text-pink-500 sm:text-end ">
-                {rupiahFormatter.format(discPrice ?? origPrice * qty)}
+                {rupiahFormatter.format(discountPrice ?? origPrice * qty)}
               </h3>
             </div>
             <div className="flex items-center gap-c-3 sm:ml-auto">

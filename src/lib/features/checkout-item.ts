@@ -6,7 +6,7 @@ interface CheckoutItem {
   imageUrl: string;
   name: string;
   origPrice: number;
-  discPrice?: number | null;
+  discountPrice?: number | null;
 }
 
 interface CheckoutState {
@@ -20,7 +20,7 @@ const initialState: CheckoutState = {
       name: "Velvet Cake Delight",
       imageUrl: "/products/cake2.png",
       origPrice: 65000,
-      discPrice: 45500,
+      discountPrice: 45500,
       qty: 1,
     },
     {
@@ -28,7 +28,7 @@ const initialState: CheckoutState = {
       name: "Classic Creamy Dream",
       imageUrl: "/products/classic2.png",
       origPrice: 32000,
-      discPrice: null,
+      discountPrice: null,
       qty: 1,
     },
   ],

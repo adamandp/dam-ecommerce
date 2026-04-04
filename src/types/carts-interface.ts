@@ -14,7 +14,7 @@ interface CartItemRes {
   imageUrl: string;
   category: string;
   origPrice: number;
-  discPrice?: number | null;
+  discountPrice?: number | null;
   qty: number;
 }
 

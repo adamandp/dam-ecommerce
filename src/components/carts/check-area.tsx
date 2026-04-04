@@ -29,7 +29,7 @@ export default function CheckArea() {
       imageUrl: item.imageUrl,
       name: item.name,
       origPrice: item.origPrice,
-      discPrice: item.discPrice,
+      discountPrice: item.discountPrice,
     })) ?? [];
 
   const isAllChecked =
@@ -43,7 +43,7 @@ export default function CheckArea() {
         className="size-c-6 cursor-pointer"
         checked={isAllChecked}
         onCheckedChange={() => {
-          if (!carts) return; // guard
+          if (!carts) return;
           dispatch(toggleAll(mappedCarts));
         }}
         onClick={(e) => e.stopPropagation()}

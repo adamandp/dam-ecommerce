@@ -1,7 +1,7 @@
 import CartHeader from "@/components/carts/cart-header";
 import CartItemArea from "@/components/carts/cart-item-area";
 import CheckArea from "@/components/carts/check-area";
-// import CheckoutCard from "@/components/carts/checkout-card";
+import CheckoutCard from "@/components/carts/checkout-card";
 import { Button } from "@/components/ui/button";
 import { cartApi } from "@/services/cart-api";
 import { getQueryClient } from "@/utils/get-query-client";
@@ -29,7 +29,7 @@ export default async function Carts() {
             </Button>
           </Link>
         </div>
-        {/* <CheckoutCard subtotal={subtotal} totaldiscount={totalDiscount} /> */}
+        <CheckoutCard />
       </div>
     </div>
   );

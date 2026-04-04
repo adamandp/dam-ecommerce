@@ -7,7 +7,7 @@ export const dummyCarts: CartItemRes[] = [
     imageUrl: "/products/cake1.png",
     category: "Cake",
     origPrice: 45000,
-    discPrice: null,
+    discountPrice: null,
     qty: 2,
   },
   {
@@ -16,7 +16,7 @@ export const dummyCarts: CartItemRes[] = [
     imageUrl: "/products/cake2.png",
     category: "Cake",
     origPrice: 65000,
-    discPrice: 45500,
+    discountPrice: 45500,
     qty: 1,
   },
   {
@@ -25,7 +25,7 @@ export const dummyCarts: CartItemRes[] = [
     imageUrl: "/products/classic1.png",
     category: "Classic",
     origPrice: 35000,
-    discPrice: null,
+    discountPrice: null,
     qty: 3,
   },
   {
@@ -34,7 +34,7 @@ export const dummyCarts: CartItemRes[] = [
     imageUrl: "/products/classic2.png",
     category: "Classic",
     origPrice: 32000,
-    discPrice: null,
+    discountPrice: null,
     qty: 1,
   },
   {
@@ -43,7 +43,7 @@ export const dummyCarts: CartItemRes[] = [
     imageUrl: "/products/classic3.png",
     category: "Classic",
     origPrice: 40000,
-    discPrice: 32000,
+    discountPrice: 32000,
     qty: 2,
   },
 ];
