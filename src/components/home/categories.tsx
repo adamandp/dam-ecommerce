@@ -37,10 +37,10 @@ export default function Categories() {
   return (
     <div className="grid gap-c-10 place-items-center pb-c-24 overflow-hidden">
       <section className="grid gap-c-5 text-center lg:text-start">
-        <h1 className="title-text">
+        <h1 className="title-text text-center">
           Explore Our <span>Categories</span>
         </h1>
-        <h2 className="desc-text">
+        <h2 className="desc-text text-center">
           Browse through our different categories to find your favorite ice
           cream treats.
         </h2>
