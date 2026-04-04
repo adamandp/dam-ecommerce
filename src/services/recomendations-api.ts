@@ -4,17 +4,17 @@ import { ProductRes } from "@/types/product-res";
 import axiosInstance from "@/utils/axios-instance";
 
 export const getRecomendations = {
-  categories: async () => {
+  categories: async (): Promise<CategoriesRes[]> => {
     return await axiosInstance
       .get<WebRes<CategoriesRes[]>>("/recomendations/categories")
       .then((res) => res.data.data ?? []);
   },
-  classic: async () => {
+  classic: async (): Promise<ProductRes[]> => {
     return await axiosInstance
       .get<WebRes<ProductRes[]>>("/recomendations/classic")
       .then((res) => res.data.data ?? []);
   },
-  offers: async () => {
+  offers: async (): Promise<ProductRes[]> => {
     return await axiosInstance
       .get<WebRes<ProductRes[]>>("/recomendations/offers")
       .then((res) => res.data.data ?? []);
