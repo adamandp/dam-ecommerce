@@ -3,7 +3,9 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { ShoppingCart } from "lucide-react";
 import { animateFlyToCart } from "@/utils/motion-effects";
-import { useAppDispatch } from "@/lib/hooks";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { AddToCartDto, CartItemRes } from "@/types/carts-interface";
+import { cartApi } from "@/services/cart-api";
 
 export enum DiscountTypeEnum {
   PERCENTAGE = "PERCENTAGE",
@@ -37,6 +39,80 @@ export default function CardProduct({
   discountType,
   discountValue,
 }: CardProductProps) {
+  const queryClient = useQueryClient();
+
+  const addToCartMutation = useMutation({
+    mutationFn: (req: AddToCartDto[]) => cartApi.addToCart(req),
+
+    onMutate: async (req) => {
+      await queryClient.cancelQueries({ queryKey: ["cart"] });
+
+      const previousCart = queryClient.getQueryData<CartItemRes[]>(["cart"]);
+
+      queryClient.setQueryData<CartItemRes[]>(["cart"], (old = []) => {
+        const updated = [...old];
+
+        req.forEach((r) => {
+          const index = updated.findIndex((i) => i.id === r.productId);
+
+          if (index !== -1) {
+            updated[index] = {
+              ...updated[index],
+              qty: updated[index].qty + r.quantity,
+            };
+          } else {
+            // 🔥 dari shop → pakai props (bukan cache cart)
+            updated.push({
+              id,
+              name,
+              imageUrl,
+              category: "", // kalau ada category, isi
+              origPrice,
+              discountPrice: discountPrice ?? null,
+              qty: r.quantity,
+            });
+          }
+        });
+
+        return updated;
+      });
+
+      return { previousCart };
+    },
+
+    onError: (_err, _req, context) => {
+      queryClient.setQueryData(["cart"], context?.previousCart);
+    },
+
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
+    },
+  });
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    const productImg = e.currentTarget
+      .closest(".product-card")
+      ?.querySelector("img");
+    const cartBtn =
+      window.innerWidth < 1024
+        ? document.querySelector("#cart-button-mobile")
+        : document.querySelector("#cart-button-desktop");
+
+    if (productImg && cartBtn) {
+      animateFlyToCart(productImg, cartBtn);
+    }
+
+    addToCartMutation.mutate([
+      {
+        productId: id,
+        quantity: 1,
+      },
+    ]);
+  };
+
   return (
     <Link
       className={`bg-card p-c-3 rounded-c-5 grid content-between h-full w-c-70 select-none relative overflow-hidden cursor-pointer product-card ${className}`}
@@ -89,7 +165,8 @@ export default function CardProduct({
         <Button
           variant={"secondary"}
           size={"icon"}
-          // onClick={handleAddToCart}
+          onClick={handleAddToCart}
+          disabled={addToCartMutation.isPending}
         >
           <ShoppingCart className="size-c-6" />
         </Button>
