@@ -3,9 +3,9 @@
 import Carousel from "../carousel/carousel";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import CardProduct from "../card-product";
+import CardProduct from "../product-card";
 import { ProductRes } from "@/types/product-res";
-import CardProductSkeleton from "../card-product-skeleton";
+import CardProductSkeleton from "../product-card-skeleton";
 import { getRecomendations } from "@/services/recomendations-api";
 
 export default function Classic() {

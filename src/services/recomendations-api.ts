@@ -1,4 +1,4 @@
-import { CategoriesRecomendationRes as CategoriesRes } from "@/types/categories-recomendations-interface";
+import { CategoriesRecomendationRes as CategoriesRes } from "@/types/recomendations-interface";
 import { WebResponse as WebRes } from "@/types/common-interface";
 import { ProductRes } from "@/types/product-res";
 import axiosInstance from "@/utils/axios-instance";

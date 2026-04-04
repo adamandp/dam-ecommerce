@@ -2,8 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import Carousel from "../carousel/carousel";
-import CardProduct from "../card-product";
-import CardProductSkeleton from "../card-product-skeleton";
+import CardProduct from "../product-card";
+import CardProductSkeleton from "../product-card-skeleton";
 import { getRecomendations } from "@/services/recomendations-api";
 
 export default function OffersSection() {

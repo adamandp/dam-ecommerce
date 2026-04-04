@@ -5,7 +5,7 @@ import Carousel from "../carousel/carousel";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import { CategoriesRecomendationRes } from "@/types/categories-recomendations-interface";
+import { CategoriesRecomendationRes } from "@/types/recomendations-interface";
 import { getRecomendations } from "@/services/recomendations-api";
 
 function CategoryCardSkeleton() {

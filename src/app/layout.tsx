@@ -4,6 +4,7 @@ import { archivo, berkshire_swash } from "@/lib/fonts";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { MockProvider } from "@/providers/mock-provider";
 import QueryProvider from "@/providers/query-provider";
+import StoreProvider from "@/providers/store-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,16 +24,18 @@ export default function RootLayout({
     >
       <body>
         <MockProvider>
-          <QueryProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
-          </QueryProvider>
+          <StoreProvider>
+            <QueryProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                {children}
+              </ThemeProvider>
+            </QueryProvider>
+          </StoreProvider>
         </MockProvider>
       </body>
     </html>

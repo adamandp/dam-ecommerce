@@ -1,4 +1,4 @@
-import { CategoriesRecomendationRes } from "@/types/categories-recomendations-interface";
+import { CategoriesRecomendationRes } from "@/types/recomendations-interface";
 import { DiscountTypeEnum, ProductRes } from "@/types/product-res";
 
 const dummyCategoriesRecomendations: CategoriesRecomendationRes[] = [

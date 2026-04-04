@@ -1,7 +1,7 @@
 import { http, HttpResponse, delay } from "msw"; // 1. Import delay
 import { WebResponse } from "@/types/common-interface";
 import { ProductRes } from "@/types/product-res";
-import { CategoriesRecomendationRes } from "@/types/categories-recomendations-interface";
+import { CategoriesRecomendationRes } from "@/types/recomendations-interface";
 import { dummyRecomendationsClassic } from "../data/classic";
 import { dummyCategoriesRecomendations } from "../data/categories";
 import { dummyOffersRecomendations } from "../data/offers";
