@@ -143,7 +143,7 @@ export default function CartCard({
     <Link
       key={id}
       className={`bg-card p-c-3 rounded-c-5 flex items-stretch gap-c-3 cursor-pointer ${className}`}
-      href={`/product/${id}`}
+      href={`/products/${id}`}
     >
       <section className="flex items-center gap-c-3">
         <div
