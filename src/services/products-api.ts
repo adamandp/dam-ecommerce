@@ -1,11 +1,11 @@
 import { WebResponse as WebRes } from "@/types/common-interface";
-import { CatalogDto, ProductRes } from "@/types/product-interface";
+import { CatalogDto, CatalogRes } from "@/types/products-interface";
 import axiosInstance from "@/utils/axios-instance";
 
 export const productsApi = {
-  getCatalog: async (query: CatalogDto): Promise<ProductRes[]> => {
+  getCatalog: async (query: CatalogDto): Promise<CatalogRes[]> => {
     return await axiosInstance
-      .get<WebRes<ProductRes[]>>("/products/catalog", {
+      .get<WebRes<CatalogRes[]>>("/products", {
         params: {
           q: query.q,
           sort: query.sort,

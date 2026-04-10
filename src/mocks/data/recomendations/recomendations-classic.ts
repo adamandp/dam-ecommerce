@@ -1,6 +1,7 @@
-import { ProductRes, DiscountTypeEnum } from "@/types/product-interface";
+import { DiscountTypeEnum } from "@/types/discount-interface";
+import { ProductRecomendationRes } from "@/types/recomendations-interface";
 
-export const dummyRecomendationsClassic: ProductRes[] = [
+export const mocksRecomendationsClassic: ProductRecomendationRes[] = [
   {
     id: "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
     name: "Timeless Chocolate Scoop",

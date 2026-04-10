@@ -1,18 +1,7 @@
-import { PaginationDto } from "./common-interface";
+import { DiscountTypeEnum } from "./discount-interface";
 
-export enum DiscountTypeEnum {
-  PERCENTAGE = "PERCENTAGE",
-  FIXED = "FIXED",
-  PRICE = "PRICE",
-  FREE_ITEM = "FREE_ITEM",
-}
-
-interface CatalogDto extends PaginationDto {
-  q?: string;
-  sort?: "asc" | "desc" | "default";
-  min?: number;
-  max?: number;
-  cat?: string[];
+interface ProductDto {
+  id: string;
 }
 
 interface ProductRes {
@@ -21,10 +10,16 @@ interface ProductRes {
   imageUrl: string;
   description: string;
   rate: number;
+  category: string;
+  sales: number;
   origPrice: number;
   discountPrice?: number | null;
   discountType?: DiscountTypeEnum | null;
   discountValue?: number | null;
 }
 
-export type { ProductRes, CatalogDto };
+interface ProductInformationRes {
+  information: string;
+}
+
+export type { ProductDto, ProductRes, ProductInformationRes };

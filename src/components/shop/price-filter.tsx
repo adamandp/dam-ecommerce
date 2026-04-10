@@ -11,19 +11,15 @@ export default function PriceFilter() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // 1. Ambil nilai mentah dari URL
   const urlMin = Number(searchParams.get("min")) || 0;
   const urlMax = Number(searchParams.get("max")) || 100000;
 
-  // 2. State lokal buat interaksi UI
   const [range, setRange] = useState<[number, number]>([urlMin, urlMax]);
 
-  // Ref buat nandain kalau user lagi interaksi (biar gak kena timpa URL sync)
   const isInteracting = useRef(false);
 
-  // 3. Debounce Update URL
   useEffect(() => {
-    if (!isInteracting.current) return; // Jangan update URL kalau bukan hasil interaksi
+    if (!isInteracting.current) return;
 
     const handler = setTimeout(() => {
       const params = new URLSearchParams(searchParams.toString());
@@ -35,14 +31,12 @@ export default function PriceFilter() {
       else params.delete("max");
 
       router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-      isInteracting.current = false; // Selesai interaksi
+      isInteracting.current = false;
     }, 500);
 
     return () => clearTimeout(handler);
   }, [range, pathname, router, searchParams]);
 
-  // 4. Sinkronisasi dari URL ke Local State (HANYA jika tidak sedang interaksi)
-  // Ini penting buat tombol 'Back' atau 'Reset' biar UI ngikut
   useEffect(() => {
     if (!isInteracting.current) {
       setRange([urlMin, urlMax]);

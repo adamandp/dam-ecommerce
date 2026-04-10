@@ -1,6 +1,6 @@
 import { CartItemRes } from "@/types/carts-interface";
 
-export const dummyCarts: CartItemRes[] = [
+export const mocksCarts: CartItemRes[] = [
   {
     id: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
     name: "Choco Berry Cake Dream",

@@ -1,23 +1,15 @@
 "use client";
 
 import { Checkbox } from "@/components/ui/checkbox";
-import { filterCatagories } from "@/lib/features/filter-categories";
-import { RootState } from "@/lib/store";
 import { categoriesApi } from "@/services/categories-api";
 import { CategoriesRes } from "@/types/categories-interface";
 import { useQuery } from "@tanstack/react-query";
-import { useDispatch, useSelector } from "react-redux";
 import { AlertCircle, RefreshCcw } from "lucide-react";
 
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 
 export default function CategoriesOption() {
-  // const dispatch = useDispatch();
-  // const selectedCategories = useSelector((state: RootState) => {
-  //   return state.filterCatagories.catagories;
-  // });
-  // const toggleSelectedCatagories = filterCatagories.actions.toggleCategory;
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();

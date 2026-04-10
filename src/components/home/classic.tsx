@@ -4,12 +4,12 @@ import Carousel from "../carousel/carousel";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import CardProduct from "../product-card";
-import { ProductRes } from "@/types/product-interface";
 import CardProductSkeleton from "../product-card-skeleton";
 import { getRecomendations } from "@/services/recomendations-api";
+import { ProductRecomendationRes } from "@/types/recomendations-interface";
 
 export default function Classic() {
-  const { data: favorites, isLoading } = useQuery<ProductRes[]>({
+  const { data: favorites, isLoading } = useQuery<ProductRecomendationRes[]>({
     queryKey: ["classic-recomendations"],
     queryFn: getRecomendations.classic,
   });

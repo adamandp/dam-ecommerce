@@ -1,10 +1,10 @@
 import { http, HttpResponse, delay } from "msw"; // 1. Import delay
 import { WebResponse } from "@/types/common-interface";
-import { CatalogDto, ProductRes } from "@/types/product-interface";
-import { dummyProducts } from "../data/products";
+import { CatalogDto, CatalogRes } from "@/types/products-interface";
+import { mocksProducts } from "../data/products/products";
 
 export const productsHandlers = [
-  http.get("/products/catalog", async ({ request }) => {
+  http.get("/products", async ({ request }) => {
     await delay(500);
 
     const url = new URL(request.url);
@@ -20,8 +20,8 @@ export const productsHandlers = [
 
     console.log(filters);
 
-    return HttpResponse.json<WebResponse<ProductRes[]>>({
-      data: dummyProducts,
+    return HttpResponse.json<WebResponse<CatalogRes[]>>({
+      data: mocksProducts,
     });
   }),
 ];

@@ -4,7 +4,7 @@ import { productsApi } from "@/services/products-api";
 import { useQuery } from "@tanstack/react-query";
 import CardProduct from "../product-card";
 import CardProductSkeleton from "../product-card-skeleton";
-import { CatalogDto } from "@/types/product-interface";
+import { CatalogDto } from "@/types/products-interface";
 import { useSearchParams } from "next/navigation";
 
 export default function ProductCatalog() {

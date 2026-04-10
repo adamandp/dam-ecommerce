@@ -1,12 +1,15 @@
+import { PaginationDto } from "./common-interface";
 import { DiscountTypeEnum } from "./discount-interface";
 
-interface CategoriesRecomendationRes {
-  id: string;
-  imageUrl: string;
-  category: string;
+interface CatalogDto extends PaginationDto {
+  q?: string;
+  sort?: "asc" | "desc" | "default";
+  min?: number;
+  max?: number;
+  cat?: string[];
 }
 
-interface ProductRecomendationRes {
+interface CatalogRes {
   id: string;
   name: string;
   imageUrl: string;
@@ -18,4 +21,4 @@ interface ProductRecomendationRes {
   discountValue?: number | null;
 }
 
-export type { CategoriesRecomendationRes, ProductRecomendationRes };
+export type { CatalogDto, CatalogRes };

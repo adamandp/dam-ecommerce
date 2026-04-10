@@ -1,7 +1,6 @@
 import { CategoriesRecomendationRes } from "@/types/recomendations-interface";
-import { DiscountTypeEnum, ProductRes } from "@/types/product-interface";
 
-const dummyCategoriesRecomendations: CategoriesRecomendationRes[] = [
+export const mocksCategoriesRecomendations: CategoriesRecomendationRes[] = [
   {
     id: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
     imageUrl: "/products/cake1.png",
@@ -33,5 +32,3 @@ const dummyCategoriesRecomendations: CategoriesRecomendationRes[] = [
     category: "Vegan",
   },
 ];
-
-export { dummyCategoriesRecomendations };

@@ -24,8 +24,8 @@ export default function RootLayout({
     >
       <body>
         <MockProvider>
-          <StoreProvider>
-            <QueryProvider>
+          <QueryProvider>
+            <StoreProvider>
               <ThemeProvider
                 attribute="class"
                 defaultTheme="system"
@@ -34,8 +34,8 @@ export default function RootLayout({
               >
                 {children}
               </ThemeProvider>
-            </QueryProvider>
-          </StoreProvider>
+            </StoreProvider>
+          </QueryProvider>
         </MockProvider>
       </body>
     </html>

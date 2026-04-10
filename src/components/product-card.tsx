@@ -8,7 +8,7 @@ import { AddToCartDto, CartItemRes } from "@/types/carts-interface";
 import { cartApi } from "@/services/cart-api";
 import { rupiahFormatter } from "@/utils/rupiah-formatter";
 
-export enum DiscountTypeEnum {
+enum DiscountTypeEnum {
   PERCENTAGE = "PERCENTAGE",
   FIXED = "FIXED",
   PRICE = "PRICE",
@@ -62,12 +62,11 @@ export default function CardProduct({
               qty: updated[index].qty + r.quantity,
             };
           } else {
-            // 🔥 dari shop → pakai props (bukan cache cart)
             updated.push({
               id,
               name,
               imageUrl,
-              category: "", // kalau ada category, isi
+              category: "",
               origPrice,
               discountPrice: discountPrice ?? null,
               qty: r.quantity,
@@ -117,9 +116,8 @@ export default function CardProduct({
   return (
     <Link
       className={`bg-card p-c-3 rounded-c-5 grid content-between h-full w-c-70 select-none relative overflow-hidden cursor-pointer product-card ${className}`}
-      href={`/product/${id}`}
+      href={`/products/${id}`}
     >
-      {/* Refactored Discount & Promo Labels (Anchored to the Left) */}
       <div className="absolute top-c-4 left-0 z-10 flex flex-col gap-c-2 max-w-[85%] pointer-events-none">
         {discountPrice && discountType !== DiscountTypeEnum.FREE_ITEM && (
           <div className="bg-red-500 text-white text-c-3 font-bold px-c-3 py-1 rounded-r-full shadow-md">

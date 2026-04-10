@@ -1,6 +1,7 @@
-import { DiscountTypeEnum, ProductRes } from "@/types/product-interface";
+import { DiscountTypeEnum } from "@/types/discount-interface";
+import { ProductRecomendationRes } from "@/types/recomendations-interface";
 
-export const dummyOffersRecomendations: ProductRes[] = [
+export const mocksOffersRecomendations: ProductRecomendationRes[] = [
   {
     id: "a1b2c3d4-e5f6-4a5b-6c7d-8e9f0a1b2c3d",
     name: "Double Delight Cone",

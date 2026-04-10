@@ -5,14 +5,14 @@ import {
   CartItemRes,
   RemoveFromCartDto,
 } from "@/types/carts-interface";
-import { dummyCarts } from "../data/carts";
+import { mocksCarts } from "../data/carts/carts";
 
 export const cartsHandlers = [
-  http.get("/carts/user", async () => {
+  http.get<never, never, WebRes<CartItemRes[]>>("/carts/user", async () => {
     await delay(500);
 
     return HttpResponse.json<WebRes<CartItemRes[]>>({
-      data: dummyCarts,
+      data: mocksCarts,
     });
   }),
 
@@ -21,7 +21,7 @@ export const cartsHandlers = [
     async () => {
       await delay(500);
 
-      const data = dummyCarts.slice(2);
+      const data = mocksCarts.slice(2);
       return HttpResponse.json<WebRes<CartItemRes[]>>({
         data,
       });

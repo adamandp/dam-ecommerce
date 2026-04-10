@@ -1,6 +1,6 @@
 import { CategoriesRecomendationRes as CategoriesRes } from "@/types/recomendations-interface";
 import { WebResponse as WebRes } from "@/types/common-interface";
-import { ProductRes } from "@/types/product-interface";
+import { ProductsRes } from "@/types/products-interface";
 import axiosInstance from "@/utils/axios-instance";
 
 export const getRecomendations = {
@@ -9,14 +9,14 @@ export const getRecomendations = {
       .get<WebRes<CategoriesRes[]>>("/recomendations/categories")
       .then((res) => res.data.data ?? []);
   },
-  classic: async (): Promise<ProductRes[]> => {
+  classic: async (): Promise<ProductsRes[]> => {
     return await axiosInstance
-      .get<WebRes<ProductRes[]>>("/recomendations/classic")
+      .get<WebRes<ProductsRes[]>>("/recomendations/classic")
       .then((res) => res.data.data ?? []);
   },
-  offers: async (): Promise<ProductRes[]> => {
+  offers: async (): Promise<ProductsRes[]> => {
     return await axiosInstance
-      .get<WebRes<ProductRes[]>>("/recomendations/offers")
+      .get<WebRes<ProductsRes[]>>("/recomendations/offers")
       .then((res) => res.data.data ?? []);
   },
 };

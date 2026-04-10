@@ -1,6 +1,7 @@
-import { DiscountTypeEnum, ProductRes } from "@/types/product-interface";
+import { DiscountTypeEnum } from "@/types/discount-interface";
+import { CatalogRes } from "@/types/products-interface";
 
-const dummyProducts: ProductRes[] = [
+const mocksProducts: CatalogRes[] = [
   {
     id: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
     name: "Choco Berry Cake Dream",
@@ -411,4 +412,4 @@ const dummyProducts: ProductRes[] = [
   },
 ];
 
-export { dummyProducts };
+export { mocksProducts };
