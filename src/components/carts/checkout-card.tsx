@@ -62,7 +62,7 @@ export default function CheckoutCard() {
           </p>
         </div>
         <div className="pb-c-6 border-b-2">
-          <Link href="/cart/checkout">
+          <Link href="/checkout">
             <Button className="w-full" disabled={checkoutItems.length === 0}>
               Proceed to Checkout <ArrowRight />
             </Button>
