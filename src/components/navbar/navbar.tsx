@@ -147,7 +147,7 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link href={"/cart"} id="cart-button-mobile">
+          <Link href={"/carts"} id="cart-button-mobile">
             <CartButton />
           </Link>
           {/* <Link href="/profile" id="cart-button-mobile">
@@ -158,7 +158,7 @@ export default function Navbar() {
               <UserIcon className="size-c-7 md:size-c-9 hover:text-pink-500 active:text-pink-600 transition-transform transform" />
             </motion.div>
           </Link> */}
-          <ThemeToggle size="size-c-5 md:size-c-9" />
+          <ThemeToggle size="size-c-7 md:size-c-9 lg:size-c-5 cursor-pointer hover:text-pink-500 active:text-pink-600" />
         </div>
         {/* <div className="bg-card p-c-5 rounded-full shadow-2xl hidden sm:grid place-items-center   left-full">
           <ThemeToggle size="size-c-5 md:size-c-9" />
