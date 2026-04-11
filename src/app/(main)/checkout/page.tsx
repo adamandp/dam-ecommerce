@@ -6,7 +6,6 @@ import CheckoutSummaryCard from "@/components/checkout/checkout-summary-card";
 import PaymentSection from "@/components/checkout/payment-section";
 import ShipmentSection from "@/components/checkout/shipment-section";
 import { useAppSelector } from "@/lib/hooks";
-import { useSelector } from "react-redux";
 
 export default function Page() {
   const cart = useAppSelector((state) => state.checkoutSlice.items);

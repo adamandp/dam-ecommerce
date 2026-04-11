@@ -2,18 +2,15 @@
 
 import * as React from "react";
 import { Tabs as TabsPrimitive } from "radix-ui";
-
 import { cn } from "@/lib/utils";
 
 function Tabs({
   className,
-  orientation = "horizontal",
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Root>) {
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
-      data-orientation={orientation}
       className={cn("flex flex-col gap-2", className)}
       {...props}
     />
@@ -28,7 +25,7 @@ function TabsList({
     <TabsPrimitive.List
       data-slot="tabs-list"
       className={cn(
-        "text-muted-foreground flex h-9 w-full items-center  md:justify-start",
+        "bg-muted text-muted-foreground inline- w-fit items-center justify-center rounded-lg p-[3px]",
         className,
       )}
       {...props}
@@ -44,12 +41,7 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "relative inline-flex items-center cursor-pointer font-medium text-c-5-5 transition-all duration-300 ease-in-out",
-        "hover:text-pink-500 active:text-pink-600 data-[state=active]:text-pink-500",
-        "hover:scale-105",
-        "before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-pink-500",
-        "hover:before:w-full data-[state=active]:before:w-full before:transition-all before:duration-300",
-        "overflow-visible mr-c-10",
+        "data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-c-5 font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer",
         className,
       )}
       {...props}
@@ -64,7 +56,7 @@ function TabsContent({
   return (
     <TabsPrimitive.Content
       data-slot="tabs-content"
-      className={cn(" outline-none text-c-5", className)}
+      className={cn("flex-1 outline-none", className)}
       {...props}
     />
   );
