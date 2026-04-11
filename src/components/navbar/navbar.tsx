@@ -5,7 +5,7 @@ import {
   HomeIcon,
   Search,
   StoreIcon,
-  UserIcon,
+  // UserIcon,
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -14,8 +14,8 @@ import { SearchBar } from "./search-bar";
 import { hoverEffect, tapEffect } from "@/utils/motion-effects";
 import CartButton from "./cart-button";
 import { ThemeToggle } from "./theme-toggle";
-import { Button } from "../ui/button";
 import Link from "next/link";
+// import { Button } from "../ui/button";
 
 const NAV_ITEMS = [
   {
