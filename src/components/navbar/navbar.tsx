@@ -50,7 +50,7 @@ export default function Navbar() {
               className="w-c-10"
             />
             <h1 className="font-berkshire-swash text-pink-500 text-c-8">
-              Icy<span className="text-purple-700">Tales</span>
+              Creamy<span className="text-purple-700">Cream</span>
             </h1>
           </Link>
         </section>
