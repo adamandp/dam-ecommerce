@@ -35,7 +35,7 @@ export default function Signup() {
             alt="Special"
             width={1000}
             height={1000}
-            className="w-c-16 object-contain absolute -left-0 top-0 hidden md:block"
+            className="w-c-16 object-contain absolute left-0 top-0 hidden md:block"
           />
         </section>
       </div>

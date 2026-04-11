@@ -68,7 +68,7 @@ export default function CheckoutSummaryCard() {
           </p>
         </div>
         <div className="pb-c-6 border-b-2">
-          <Link href="/cart/checkout/thankyou">
+          <Link href="/checkout/thankyou">
             <Button
               className="w-full"
               disabled={!shipment || !address || !payment}
