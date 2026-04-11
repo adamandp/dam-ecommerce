@@ -10,7 +10,7 @@ const footerItem = [
   {
     id: 1,
     name: "Github",
-    href: "/https://github.com/adamandp",
+    href: "https://github.com/adamandp",
     Icon: GithubIcon,
   },
   {
