@@ -9,7 +9,7 @@ export default function NotFound() {
         😱<span className="mb-c-10">404</span> 😱
       </h1>
       <h2 className="text-c-9 font-medium text-center">
-        Oops! Page Not Found! 😬
+        😬 Oops! Page Not Found! 😬
       </h2>
       <h3 className="text-c-5 text-card-foreground text-center">
         Looks like you&apos;ve wandered into a black hole. 🌌{" "}
