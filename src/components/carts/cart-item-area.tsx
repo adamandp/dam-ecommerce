@@ -14,7 +14,7 @@ export default function CartItemArea() {
   });
 
   return (
-    <ScrollArea className="h-c-107">
+    <ScrollArea className="max-h-screen h-full">
       {isPending
         ? Array.from({ length: 3 }).map((_, index) => (
             <div key={index} className="my-c-2-5">
