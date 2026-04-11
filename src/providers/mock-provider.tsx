@@ -14,9 +14,5 @@ export function MockProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  // if (wait) {
-  //   return <div>Loading...</div>;
-  // }
-
   return <>{children}</>;
 }
