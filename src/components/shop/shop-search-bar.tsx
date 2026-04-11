@@ -45,7 +45,7 @@ export default function ShopSearchbar() {
         placeholder: "Find Your Favorites Product",
         value: localValue,
         onChange: (e) => {
-          isTyping.current = true; // Kasih tau satpam user mulai ngetik
+          isTyping.current = true;
           setLocalValue(e.target.value);
         },
       }}

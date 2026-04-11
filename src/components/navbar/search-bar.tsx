@@ -1,6 +1,5 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState } from "react";
 import {
   Popover,
   PopoverContent,
@@ -13,18 +12,20 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
-const frameworks = [
-  { label: "React", value: "react" },
-  { label: "Vue", value: "vue" },
-  { label: "Angular", value: "angular" },
-];
 import SearchInput from "../search-input";
 
 interface SearchBarProps {
   setActiveSearchBar?: Dispatch<SetStateAction<boolean>>;
 }
+
+const frameworks = [
+  { label: "React", value: "react" },
+  { label: "Vue", value: "vue" },
+  { label: "Angular", value: "angular" },
+];
 
 export function SearchBar({ setActiveSearchBar }: SearchBarProps) {
   const [open, setOpen] = useState(false);
@@ -32,7 +33,6 @@ export function SearchBar({ setActiveSearchBar }: SearchBarProps) {
   const [shake, setShake] = useState(false);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    // Logika onKeyDown sebelumnya
     if (e.key === "Enter") {
       const matched = frameworks.find((fw) =>
         fw.label.toLowerCase().includes(value.toLowerCase()),

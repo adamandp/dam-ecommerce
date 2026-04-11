@@ -111,11 +111,11 @@ export default function Navbar() {
             </AnimatePresence>
             <ThemeToggle />
           </ul>
-          <Link href={"/profile"}>
+          {/* <Link href={"/profile"}>
             <Button size={"icon"}>
               <UserIcon className="size-c-5" />
             </Button>
-          </Link>
+          </Link> */}
         </motion.section>
       </div>
       <div className="fixed bottom-[5%] left-1/2 transform -translate-x-1/2 z-50 mx-auto max-w-c-150 w-[90%] flex items-center gap-c-2 justify-between lg:hidden">
@@ -150,18 +150,19 @@ export default function Navbar() {
           <Link href={"/cart"} id="cart-button-mobile">
             <CartButton />
           </Link>
-          <Link href="/profile" id="cart-button-mobile">
+          {/* <Link href="/profile" id="cart-button-mobile">
             <motion.div
               whileHover={{ ...hoverEffect() }}
               whileTap={{ ...tapEffect() }}
             >
               <UserIcon className="size-c-7 md:size-c-9 hover:text-pink-500 active:text-pink-600 transition-transform transform" />
             </motion.div>
-          </Link>
-        </div>
-        <div className="bg-card p-c-5 rounded-full shadow-2xl hidden sm:grid place-items-center   left-full">
+          </Link> */}
           <ThemeToggle size="size-c-5 md:size-c-9" />
         </div>
+        {/* <div className="bg-card p-c-5 rounded-full shadow-2xl hidden sm:grid place-items-center   left-full">
+          <ThemeToggle size="size-c-5 md:size-c-9" />
+        </div> */}
       </div>
     </header>
   );
