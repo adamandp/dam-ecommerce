@@ -1,3 +1,4 @@
+import { rupiahFormatter } from "@/utils/rupiah-formatter";
 import Image from "next/image";
 import { ComponentProps } from "react";
 
@@ -73,7 +74,9 @@ export default function ShipmentCard({
         </div>
       </div>
       <div className="text-right">
-        <p className="text-sm font-bold text-pink-500">${cost.toFixed(2)}</p>
+        <p className="text-sm font-bold text-pink-500">
+          {rupiahFormatter.format(cost)}
+        </p>
         {etd && <p className="text-xs text-muted-foreground">ETD: {etd}</p>}
       </div>
     </div>
