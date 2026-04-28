@@ -16,6 +16,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isMocking = process.env.API_MOCKING;
+
   return (
     <html
       lang="en"
@@ -23,7 +25,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <MockProvider>
+        <MockProvider isMocking={isMocking!}>
           <QueryProvider>
             <StoreProvider>
               <ThemeProvider

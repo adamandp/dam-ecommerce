@@ -3,11 +3,17 @@
 import { ReactNode, useEffect, useState } from "react";
 import { initMocks } from "@/mocks";
 
-export function MockProvider({ children }: { children: ReactNode }) {
+export function MockProvider({
+  children,
+  isMocking,
+}: {
+  children: ReactNode;
+  isMocking: string;
+}) {
   const [wait, setWait] = useState(true);
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
+    if (isMocking === "enabled") {
       console.log("API mocking is enabled");
       initMocks();
       setWait(false);
